@@ -12,4 +12,8 @@ func TestMoney(t *testing.T) {
 		})
 	})
 
+	t.Run("new money should return the total amount", func(t *testing.T) {
+		assert.IsType(t, Money{}, NewMoney(4, 5))
+	})
+
 }
