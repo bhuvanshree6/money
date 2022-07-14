@@ -11,3 +11,15 @@ func NewMoney(rupees float64, paise int) Money {
 	}
 	return Money{rupees, paise}
 }
+
+func (mon Money) TotalAmount() float64 {
+	if mon.paise < 100 {
+		var temp float64 = ((float64)(mon.paise) / 100)
+		return (mon.rupees + temp)
+	} else if mon.paise > 100 {
+		var rup float64 = (float64)(mon.paise / 100)
+		var pai float64 = (float64)(mon.paise % 100)
+		return ((mon.rupees + rup) + (pai / 100))
+	}
+	return 0
+}
