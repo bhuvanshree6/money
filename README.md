@@ -28,7 +28,7 @@ If the test file is not in the root folder
 
     $go test ./...
 ## Usage instructions
-TODO: 
+TODO: usage instruction to be updated
 ## Library usage
 
 TODO: Library usage to be updated.
