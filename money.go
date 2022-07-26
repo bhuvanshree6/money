@@ -1,31 +1,34 @@
 package money
 
-var rup float64
-var pai float64
+var mon1 float64
+var mon2 float64
 
 type Money struct {
-	rupees float64
+	rupees int
 	paise  int
 }
 
-func NewMoney(rupees float64, paise int) Money {
+func NewMoney(rupees int, paise int) Money {
 	if rupees < 0 || paise < 0 {
 		panic("Rupees and paise should be positive ")
 	}
 
 	return Money{rupees, paise}
 }
+func (mon Money) AddMoney(newmoney Money) float64 {
 
-func (mon Money) AddMoney() float64 {
-	if mon.paise < 100 {
-		var temp float64 = (float64)(mon.paise) / 100
-		return mon.rupees + temp
-	} else if mon.paise > 100 {
-		rup = (float64)(mon.paise / 100)
-		pai = (float64)(mon.paise % 100)
-		return (mon.rupees + rup) + (pai / 100)
-	}
-	return 5.0
+	mon1 = float64(newmoney.rupees*100 + newmoney.paise)
+	mon2 = float64(mon.rupees*100 + mon.paise)
+	return (mon1 + mon2) / 100
+
+}
+
+func (mon Money) SubtractMoney(newmoney Money) float64 {
+
+	mon1 = float64(newmoney.rupees*100 + newmoney.paise)
+	mon2 = float64(mon.rupees*100 + mon.paise)
+	return (mon1 - mon2) / 100
+
 }
 
 func (mon Money) Equals(mon2 Money) bool {
